@@ -1,4 +1,5 @@
-Podrías proporcionar las sentencias sql para insertar 30 registros (con categorías de tecnología, donde los precios esten en u$s ) en la siguiente tabla Productos: 
+Genera 30 sentencias SQL INSERT INTO para poblar la tabla Productos con artículos de tecnología. Los precios deben estar en dólares estadounidenses (USD) y los productos deben ser variados y realistas 
+
 CREATE TABLE Productos(
 	idProducto INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	Nombre VARCHAR(50) NOT NULL,
