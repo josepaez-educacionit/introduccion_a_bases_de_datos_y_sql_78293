@@ -1,0 +1,10 @@
+Podrías proporcionar las sentencias sql para insertar 30 registros (con categorías de tecnología, donde los precios esten en u$s ) en la siguiente tabla Productos: 
+CREATE TABLE Productos(
+	idProducto INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	Nombre VARCHAR(50) NOT NULL,
+	Precio DOUBLE,
+	Marca VARCHAR(30) NOT NULL,
+	Categoria VARCHAR(30) NOT NULL,
+	Stock INT NOT NULL,
+	Disponible BOOLEAN DEFAULT false
+);
