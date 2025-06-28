@@ -1,3 +1,8 @@
+# Crear base de datos
+create database demoDER;
+
+use demoder;
+
 CREATE TABLE IF NOT EXISTS `Productos` (
 	`ProductoId` int AUTO_INCREMENT NOT NULL UNIQUE,
 	`Nombre` varchar(50) NOT NULL,
