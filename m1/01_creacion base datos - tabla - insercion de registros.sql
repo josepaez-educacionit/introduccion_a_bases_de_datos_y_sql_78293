@@ -1,25 +1,45 @@
--- create database comercioit;
+-- -----------------------------------------------------
+-- Opcional: crear base de datos 'comercioit'
+-- (Comentado porque ya existe o se creó antes)
+-- -----------------------------------------------------
+-- CREATE DATABASE comercioit;
 
-use comercioit;
+-- Selecciona la base de datos 'comercioit' para trabajar con ella
+USE comercioit;
 
-# Crear tabla
+-- -----------------------------------------------------
+-- Crear tabla 'Productos'
+-- -----------------------------------------------------
+-- Esta tabla almacenará información de productos tecnológicos,
+-- incluyendo su precio, marca, categoría, stock y disponibilidad.
 CREATE TABLE Productos(
-	idProducto INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-	Nombre VARCHAR(50) NOT NULL,
-	Precio DOUBLE,
-	Marca VARCHAR(30) NOT NULL,
-	Categoria VARCHAR(30) NOT NULL,
-	Stock INT NOT NULL,
-	Disponible BOOLEAN DEFAULT false
+	idProducto INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, -- Identificador único y autoincremental
+	Nombre VARCHAR(50) NOT NULL,                                 -- Nombre descriptivo del producto
+	Precio DOUBLE,                                               -- Precio del producto (en USD)
+	Marca VARCHAR(30) NOT NULL,                                  -- Marca del producto
+	Categoria VARCHAR(30) NOT NULL,                              -- Categoría (Portátiles, Audio, etc.)
+	Stock INT NOT NULL,                                          -- Cantidad disponible en inventario
+	Disponible BOOLEAN DEFAULT false                             -- Indica si está disponible para la venta
 );
 
-#Eliminar tabla
-drop table Productos;
+-- -----------------------------------------------------
+-- Eliminar tabla 'Productos'
+-- -----------------------------------------------------
+-- Esta sentencia elimina la tabla 'Productos' de la base de datos.
+DROP TABLE Productos;
 
-drop table if exists Productos;
+-- La versión con 'IF EXISTS' elimina la tabla solo si existe,
+-- evitando errores si ya fue eliminada o nunca se creó.
+DROP TABLE IF EXISTS Productos;
 
 
-#Insertar datos de Productos
+-- -----------------------------------------------------
+-- Insertar datos de prueba en la tabla 'Productos'
+-- -----------------------------------------------------
+-- Inserta 30 registros con información realista de productos tecnológicos.
+-- Incluye portátiles, monitores, periféricos, smartphones, tablets,
+-- dispositivos de red, audio, consolas y accesorios.
+
 INSERT INTO Productos (Nombre, Precio, Marca, Categoria, Stock, Disponible) VALUES
 ('Laptop Dell Inspiron 15', 750.00, 'Dell', 'Portátiles', 25, true),
 ('Laptop HP Pavilion 14', 680.00, 'HP', 'Portátiles', 18, true),
@@ -52,5 +72,9 @@ INSERT INTO Productos (Nombre, Precio, Marca, Categoria, Stock, Disponible) VALU
 ('Base de Carga Inalámbrica Belkin', 30.00, 'Belkin', 'Accesorios', 40, true),
 ('Kit Teclado y Mouse Logitech MK270', 40.00, 'Logitech', 'Periféricos', 35, true);
 
-
-
+-- Cada registro tiene valores realistas:
+-- - Precio en dólares (USD)
+-- - Marcas reconocidas
+-- - Categorías variadas
+-- - Stock representativo
+-- - Disponible en true para indicar que están a la venta
