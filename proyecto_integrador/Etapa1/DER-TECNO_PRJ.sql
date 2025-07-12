@@ -55,3 +55,52 @@ ALTER TABLE `DETALLE`
 -- Agrega restricción de clave foránea a DETALLE: FacturaID debe existir en FACTURAS
 ALTER TABLE `DETALLE` 
 	ADD CONSTRAINT `DETALLE_fk2` FOREIGN KEY (`FacturaID`) REFERENCES `FACTURAS`(`FacturaID`);
+
+
+-- 4. Crear una tabla con el nombre LOCALIDADES
+CREATE TABLE Localidades (
+  LocalidadID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  Nombre      VARCHAR(40) NOT NULL,
+  CP          VARCHAR(10) NOT NULL,
+  Provincia   VARCHAR(20) NOT NULL,
+  PRIMARY KEY (LocalidadID)
+);
+
+-- 5. Mostrar un listado de todas las bases de datos alojadas en el servidor.
+show databases;
+
+-- 6. Mostrar un listado de todas las tablas generadas anteriormente dentro de la base de datos
+show tables;
+
+-- 7. Comentar la instrucción que lista las tablas contenidas dentro de la base de datos
+#  show tables;
+-- show tables;
+/* show tables; */
+
+-- 8. Describir la estructura de la tabla CLIENTES.
+desc Clientes;
+
+# Paso 2
+-- 1. Modificar la tabla FACTURAS tomando en cuenta las siguientes consideraciones:
+
+desc Facturas;
+
+-- a. 	Asignar la restricción UNSIGNED al campo Monto, manteniendo el tipo de dato 
+--		ya definido para el campo.
+
+alter table Facturas
+	MODIFY Monto double UNSIGNED;
+    
+    
+-- b. Modificar la tabla ARTICULOS tomando en cuenta las siguientes consideraciones:
+-- c. Cambiar el tipo de dato del campo Nombre para que admita hasta 75 caracteres.
+desc ARTICULOS;
+alter table ARTICULOS
+	modify Nombre	varchar(75);
+
+-- d. Asignar las restricciones UNSIGNED y NOT NULL al campo Precio, manteniendo
+-- el tipo de dato ya definido para el campo.    
+alter table ARTICULOS
+	modify Precio double UNSIGNED NOT NULL;
+
+    
