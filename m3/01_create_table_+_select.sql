@@ -1,3 +1,4 @@
+-- Seleccionamos la base de datos que vamos a usar
 Use LaboratorioSAB;
 
 -- Muestra todas las tablas existentes en la base de datos actual
@@ -25,9 +26,10 @@ desc articulos;
 -- Muestra la estructura de la tabla 'articulos_copia'
 desc articulos_copia;
 
-
+-- Muestra todos los registros de la tabla 'Clientes'
 select * from Clientes;
 
+-- Crea una nueva tabla llamada 'Clientes_Tucuman' con los clientes cuya provincia es 'Tucumán'
 CREATE TABLE Clientes_Tucuman (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     Nombre VARCHAR(50) NOT NULL,
@@ -42,8 +44,7 @@ SELECT ID, Nombre, Apellido, Email, Telefono, Ciudad, Provincia, CodigoPostal
 FROM Clientes
 WHERE Provincia = 'Tucumán';
 
-
-
+-- Crea una nueva tabla llamada 'Clientes_Tucuman_Gemini' copiando los datos de 'Clientes' para la provincia 'Tucumán'
 CREATE TABLE Clientes_Tucuman_Gemini AS
 SELECT
     ID,
@@ -58,6 +59,9 @@ FROM
     Clientes
 WHERE
     Provincia = 'Tucumán';
-    
-select * from Clientes_Tucuman;        
-select * from Clientes_Tucuman_Gemini;    
+
+-- Muestra todos los registros de la tabla 'Clientes_Tucuman'
+select * from Clientes_Tucuman;
+
+-- Muestra todos los registros de la tabla 'Clientes_Tucuman_Gemini'
+select * from Clientes_Tucuman_Gemini;
