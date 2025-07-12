@@ -103,4 +103,63 @@ alter table ARTICULOS
 alter table ARTICULOS
 	modify Precio double UNSIGNED NOT NULL;
 
+-- d. Asignar las restricciones UNSIGNED y NOT NULL al campo Stock, manteniendo
+-- el tipo de dato ya definido para el campo.    
+desc ARTICULOS;
+alter table ARTICULOS
+	modify Stock int UNSIGNED NOT NULL;
     
+# 3. Modificar la tabla CLIENTES. Tomar en cuenta las siguientes consideraciones:
+/* a. Cambiar el tipo de dato del campo Nombre para que admita hasta 30 caracteres y
+asigne la restricción correspondiente para que su carga sea obligatoria.    
+*/
+
+desc CLIENTES;
+alter table CLIENTES
+	modify Nombre varchar(30) not null;
+    
+/* b. Cambiar el tipo de dato del campo Apellido para que admita hasta 35
+caracteres y asigne la restricción correspondiente para que su carga sea obligatoria.    
+*/
+
+desc CLIENTES;
+alter table CLIENTES
+	modify Apellido varchar(35) not null;
+    
+/* c. Cambiar el nombre del campo Comentarios por Observaciones 
+y su tipo de dato para que admita hasta 255 caracteres.*/    
+
+desc CLIENTES;
+alter table CLIENTES
+	change Comentarios Observaciones varchar(255) null;
+    
+/* 4. Crear un PROMPT para que la IA modifique el código que venimos desarrollando, de tal forma que se
+relacionen las tablas CLIENTES y LOCALIDAD. */
+
+#Prompt: Dada la siguiente imagen, proporciona las sentencias SQL para relacionar Clientes y Localidades.
+
+/* 5. Copiar y ejecutar el código generado por la IA para que se reflejen los
+cambios en la base de datos. */
+
+-- Paso 1: Agregar columna LocalidadID a clientes
+ALTER TABLE clientes
+ADD COLUMN LocalidadID INT(10) AFTER Observaciones;
+
+-- Paso 2: Crear índice para la clave foránea (opcional pero recomendado)
+ALTER TABLE clientes
+ADD INDEX idx_LocalidadID (LocalidadID);
+
+ALTER TABLE clientes
+MODIFY COLUMN LocalidadID INT(10) UNSIGNED;
+
+-- Paso 3: Agregar restricción de clave foránea
+ALTER TABLE clientes
+ADD CONSTRAINT fk_clientes_localidades
+FOREIGN KEY (LocalidadID)
+REFERENCES localidades(LocalidadID)
+ON UPDATE CASCADE
+ON DELETE SET NULL;
+
+
+desc clientes;
+desc Localidades;
