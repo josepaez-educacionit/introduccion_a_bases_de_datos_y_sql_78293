@@ -1,0 +1,34 @@
+# Utilización de la IA para Crear Tablas con Filtros
+
+Prompt 1:
+    “Tengo una tabla de clientes con los [campos id, nombre, apellido, tipo de documento, número de documento, dirección, localidad]. ¿Cómo sería un SELECT en MySQL para obtener otra tabla clientes_argentina con la misma estructura, pero solo con los clientes cuya localidad sea 'Argentina'?”
+
+# Eliminar registros con la IA
+
+Prompt 1:
+    Hacer una query para una base de datos en MySQL
+    donde se elimine el cliente de la tabla Cliente cuyo
+    identificador sea en número 11,
+
+Prompt 2:
+    Hacer una query para una base de datos en MySQL
+    para eliminar todos los clientes de la tabla Clientes
+    cuya fecha de nacimiento sea menor al 01 de Enero
+    del 1980,
+
+Prompt 3:
+    Hacer una query para una base de datos en MySQL
+    para eliminar todos los clientes de la tabla Clientes.
+
+
+# Detectar errores usando IA
+
+Prompt 1:
+    “Revisa el siguiente código SQL que crea una tabla en MySQL y
+    detecta posibles errores. Describe los errores y sugiere
+    correcciones si es necesario.”
+
+Prompt 2:
+    "Revisa la siguiente sentencia SQL que inserta datos en una
+    tabla de MySQL y detecta posibles errores. Describe los errores
+    y sugiere correcciones si es necesario."

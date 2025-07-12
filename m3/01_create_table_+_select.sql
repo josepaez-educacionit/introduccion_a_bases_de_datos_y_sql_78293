@@ -24,3 +24,40 @@ desc articulos;
 
 -- Muestra la estructura de la tabla 'articulos_copia'
 desc articulos_copia;
+
+
+select * from Clientes;
+
+CREATE TABLE Clientes_Tucuman (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(50) NOT NULL,
+    Apellido VARCHAR(50) NOT NULL,
+    Email VARCHAR(100),
+    Telefono VARCHAR(20),
+    Ciudad VARCHAR(50),
+    Provincia VARCHAR(50),
+    CodigoPostal VARCHAR(10)
+)
+SELECT ID, Nombre, Apellido, Email, Telefono, Ciudad, Provincia, CodigoPostal
+FROM Clientes
+WHERE Provincia = 'Tucumán';
+
+
+
+CREATE TABLE Clientes_Tucuman_Gemini AS
+SELECT
+    ID,
+    Nombre,
+    Apellido,
+    Email,
+    Telefono,
+    Ciudad,
+    Provincia,
+    CodigoPostal
+FROM
+    Clientes
+WHERE
+    Provincia = 'Tucumán';
+    
+select * from Clientes_Tucuman;        
+select * from Clientes_Tucuman_Gemini;    
