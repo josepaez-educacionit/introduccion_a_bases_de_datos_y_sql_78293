@@ -1,0 +1,24 @@
+Actúa como experto en MySql. Espera instrucciones.
+
+#Prompt 1
+A partir de la siguiente estructura de tabla 'Clientes', proporciona las sentencias insert SQL con 50 registros con datos similares a la realidad de la región de Argentina: CREATE TABLE clientes (
+  ClienteID int(11) NOT NULL AUTO_INCREMENT,
+  Nombre varchar(30) NOT NULL,
+  Apellido varchar(35) NOT NULL,
+  CUIT char(16) NOT NULL,
+  Direccion varchar(50) NOT NULL,
+  Observaciones varchar(255) DEFAULT NULL)
+genere el archivo .sql completo.
+
+#Prompt 2
+A partir de la siguiente estructura de tabla 'Articulos', proporciona las sentencias insert SQL con 50 registros con datos similares a la realidad de la región de Argentina: CREATE TABLE `articulos` ( 
+  `ArticuloID` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(75) NOT NULL,
+  `Precio` double unsigned NOT NULL,
+  `Stock` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`ArticuloID`),
+  UNIQUE KEY `ArticuloID` (`ArticuloID`)
+) 
+genere el archivo .sql completo 
+
+
