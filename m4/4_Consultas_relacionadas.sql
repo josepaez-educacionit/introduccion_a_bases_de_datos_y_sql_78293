@@ -42,3 +42,23 @@ INSERT INTO Productos (idProducto, Nombre, Precio, Marca, Categoria, Presentacio
 
 select * from Marcas;
 select * from Productos;
+
+
+-- Producto  Cartesiano
+-- Que es un producto cartesiano?
+-- Es una combinacion de todas las filas de una tabla con todas las filas de otra tabla
+-- Se utiliza para obtener todas las combinaciones posibles de filas entre dos tablas.
+select * 
+from Productos, Marcas
+order by idProducto, idMarca;
+
+-- Composición Interna
+-- Se puede utilizar la composición interna para obtener los datos de las tablas relacionadas.
+-- Se utiliza la cláusula WHERE para relacionar las tablas a través de las claves foráneas.
+select * 
+from Productos, Marcas
+where Productos.Marca = Marcas.idMarca;
+
+select * 
+from Productos P, Marcas M
+where P.Marca = M.idMarca;
