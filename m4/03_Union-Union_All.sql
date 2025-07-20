@@ -1,5 +1,7 @@
+-- Seleccionamos la base de datos a utilizar
 use LaboratorioSabEXT;
 
+-- Creamos la tabla nacimientos_varones_2020 para almacenar información de los nacimientos de varones en el año 2020
 CREATE TABLE nacimientos_varones_2020 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
@@ -13,6 +15,7 @@ CREATE TABLE nacimientos_varones_2020 (
     establecimiento_salud VARCHAR(100)
 );
 
+-- Creamos la tabla nacimientos_mujeres_2020 para almacenar información de los nacimientos de mujeres en el año 2020
 CREATE TABLE nacimientos_mujeres_2020 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50),
@@ -26,7 +29,7 @@ CREATE TABLE nacimientos_mujeres_2020 (
     establecimiento_salud VARCHAR(100)
 );
 
-
+-- Insertamos registros de ejemplo en la tabla nacimientos_varones_2020
 INSERT INTO nacimientos_varones_2020 
 (nombre, apellido, fecha_nacimiento, provincia, localidad, peso_nacimiento, documento_padre, documento_madre, establecimiento_salud)
 VALUES
@@ -51,6 +54,7 @@ VALUES
 ('Felipe', 'Herrera', '2020-10-19', 'La Rioja', 'Chilecito', 3.27, '29123456', '31345678', 'Hospital Eleazar Herrera Motta'),
 ('Ignacio', 'Medina', '2020-12-05', 'Chaco', 'Resistencia', 3.14, '29887766', '31765432', 'Hospital Perrando');
 
+-- Insertamos registros de ejemplo en la tabla nacimientos_mujeres_2020
 INSERT INTO nacimientos_mujeres_2020 
 (nombre, apellido, fecha_nacimiento, provincia, localidad, peso_nacimiento, documento_padre, documento_madre, establecimiento_salud)
 VALUES
@@ -75,47 +79,43 @@ VALUES
 ('Malena', 'Herrera', '2020-10-08', 'La Rioja', 'Capital', 3.22, '29660011', '31780011', 'Hospital Vera Barros'),
 ('Amanda', 'Medina', '2020-11-27', 'Chaco', 'Presidencia Roque Sáenz Peña', 3.10, '29445566', '31554433', 'Hospital 4 de Junio');
 
-select * from nacimientos_varones_2020;
-
-select * from nacimientos_mujeres_2020;
+-- Consultas básicas para visualizar los datos cargados
+select * from nacimientos_varones_2020; -- Muestra todos los registros de nacimientos de varones
+select * from nacimientos_mujeres_2020; -- Muestra todos los registros de nacimientos de mujeres
 
 -- UNION
 -- La cláusula UNION se utiliza para combinar los resultados de dos o más consultas SELECT.
 -- Las consultas deben tener el mismo número de columnas y los tipos de datos deben ser compatibles.
 -- La cláusula UNION elimina los duplicados por defecto.
-
-/* Sintaxis
-	SELECT CAMPO1, CAMPO2 FROM TABLA1
-	UNION
-	SELECT CAMPO1, CAMPO2 FROM TABLA2;
-*/
-
 select * from nacimientos_varones_2020
 union
 select * from nacimientos_mujeres_2020;
-
+-- Explicación: Combina los registros de ambas tablas en un solo conjunto de resultados, eliminando duplicados.
 
 select nombre, apellido, provincia, fecha_nacimiento from nacimientos_varones_2020
 union
 select nombre, apellido, provincia, fecha_nacimiento from nacimientos_mujeres_2020;
-
+-- Explicación: Combina los registros de ambas tablas, mostrando solo las columnas especificadas.
 
 select id from nacimientos_varones_2020
 union
 select id from nacimientos_mujeres_2020;
+-- Explicación: Combina los IDs de ambas tablas en un solo conjunto de resultados.
 
 select * from nacimientos_varones_2020 where provincia = 'Tucumán'
 union
 select * from nacimientos_mujeres_2020 where provincia = 'Buenos Aires';
+-- Explicación: Combina los registros de ambas tablas que cumplen con las condiciones especificadas.
 
 select provincia from nacimientos_varones_2020
 union
 select provincia from nacimientos_mujeres_2020;
+-- Explicación: Combina las provincias de ambas tablas, eliminando duplicados.
 
--- Union All
+-- UNION ALL
 -- La cláusula UNION ALL se utiliza para combinar los resultados de dos o más consultas SELECT, incluyendo duplicados.
 -- Las consultas deben tener el mismo número de columnas y los tipos de datos deben ser compatibles.
-
 select provincia from nacimientos_varones_2020
 union ALL
 select provincia from nacimientos_mujeres_2020 order by provincia;
+-- Explicación: Combina las provincias de ambas tablas, incluyendo duplicados, y ordena los resultados por provincia.
