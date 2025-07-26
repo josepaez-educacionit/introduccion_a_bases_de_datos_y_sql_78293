@@ -50,7 +50,6 @@ select * from Marcas; -- Muestra todas las marcas disponibles
 select * from Productos; -- Muestra todos los productos disponibles
 
 -- Producto Cartesiano
--- ¿Qué es un producto cartesiano?
 -- Es una combinación de todas las filas de una tabla con todas las filas de otra tabla.
 -- Se utiliza para obtener todas las combinaciones posibles de filas entre dos tablas.
 select * 
